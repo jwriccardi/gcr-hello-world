@@ -5,7 +5,7 @@ FROM python:3.9-slim
 WORKDIR /app
 
 # Copy files from your machine to the container
-COPY..
+COPY . .
 
 # Install dependencies
 RUN pip install -r requirements.txt
