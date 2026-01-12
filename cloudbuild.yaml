@@ -1,0 +1,18 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: [ 'build', '-t', 'us-central1-docker.pkg.dev/gcr-hello-world/gcr-hello-world/gcr-hello-world:latest', '.' ]
+- name: 'gcr.io/cloud-builders/docker'
+  args: [ 'push', 'us-central1-docker.pkg.dev/gcr-hello-world/gcr-hello-world/gcr-hello-world:latest' ]
+- name: 'gcr.io/google-cloud-sdk/gcloud'
+  entrypoint: gcloud
+  args:
+  - 'run'
+  - 'deploy'
+  - 'gcr-hello-world'
+  - '--image'
+  - 'us-central1-docker.pkg.dev/gcr-hello-world/gcr-hello-world/gcr-hello-world:latest'
+  - '--region'
+  - 'us-central1'
+  - '--platform'
+  - 'managed'
+  - '--allow-unauthenticated'
