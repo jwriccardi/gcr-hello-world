@@ -1,3 +1,3 @@
-#!/bin/sh
+#!/bin/bash
 
-docker build -t gcr-hello-world && docker run -p 8080:8080 -e PORT=8080 gcr-hello-world
+docker build -t gcr-hello-world . && docker run -p 8080:8080 -e PORT=8080 gcr-hello-world
