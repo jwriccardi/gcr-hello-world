@@ -3,7 +3,7 @@ steps:
   args: [ 'build', '-t', 'us-central1-docker.pkg.dev/$PROJECT_ID/gcr-hello-world/gcr-hello-world:latest', '.' ]
 - name: 'gcr.io/cloud-builders/docker'
   args: [ 'push', 'us-central1-docker.pkg.dev/$PROJECT_ID/gcr-hello-world/gcr-hello-world:latest' ]
-- name: 'gcr.io/google-cloud-sdk/gcloud'
+- name: 'gcr.io/cloud-builders/gcloud'
   entrypoint: gcloud
   args:
   - 'run'
