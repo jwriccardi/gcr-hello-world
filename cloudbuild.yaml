@@ -1,8 +1,8 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: [ 'build', '-t', 'us-central1-docker.pkg.dev/gcr-hello-world/gcr-hello-world/gcr-hello-world:latest', '.' ]
+  args: [ 'build', '-t', 'us-central1-docker.pkg.dev/$PROJECT_ID/gcr-hello-world/gcr-hello-world:latest', '.' ]
 - name: 'gcr.io/cloud-builders/docker'
-  args: [ 'push', 'us-central1-docker.pkg.dev/gcr-hello-world/gcr-hello-world/gcr-hello-world:latest' ]
+  args: [ 'push', 'us-central1-docker.pkg.dev/$PROJECT_ID/gcr-hello-world/gcr-hello-world:latest' ]
 - name: 'gcr.io/google-cloud-sdk/gcloud'
   entrypoint: gcloud
   args:
@@ -10,7 +10,7 @@ steps:
   - 'deploy'
   - 'gcr-hello-world'
   - '--image'
-  - 'us-central1-docker.pkg.dev/gcr-hello-world/gcr-hello-world/gcr-hello-world:latest'
+  - 'us-central1-docker.pkg.dev/$PROJECT_ID/gcr-hello-world/gcr-hello-world:latest'
   - '--region'
   - 'us-central1'
   - '--platform'
